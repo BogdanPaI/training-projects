@@ -11,3 +11,4 @@ Before that, its implementation is being tested, but bugs may occur and its styl
 
 ### Searching algorithms (using arrays)
 * [Linear search](https://github.com/BogdanPal1/training-projects/blob/master/searching_algorithms/LinearSearch.h)
+* [Binary search (iterative)](https://github.com/BogdanPal1/training-projects/searching_algorithms/BinarySearch(iterative).h)
