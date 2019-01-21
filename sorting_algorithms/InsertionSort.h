@@ -13,11 +13,10 @@
 
 namespace alg_sort {
     template<typename T>
-    void InsertionSort(T *arr, int size) {
-        T key; 
+    void InsertionSort(T *arr, int size) { 
         int j = 0;
         for (int i = 1; i < size; i++) {
-            key = arr[i];
+            T key = arr[i];
             j = i-1;
             while(j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
