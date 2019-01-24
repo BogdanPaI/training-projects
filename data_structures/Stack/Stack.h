@@ -18,34 +18,34 @@ namespace data_struct {
         class Stack {
         public:
             // Default constructor
-	        Stack() {
-			    size_ = 0;
-				data_ = new T[CAPACITY];
-			}
+	    Stack() {
+	        size_ = 0;
+		data_ = new T[CAPACITY];
+	    }
 
             // Copy constructor
             Stack(const Stack &obj) {
                 size_ = obj.size_;
-				data_ = new T[CAPACITY];
+		data_ = new T[CAPACITY];
                 for (int i = 0; i < size_; i++) {
                     data_[i] = obj.data_[i];
                 }
             }
 
-			// Assignment operator
-			Stack& operator = (const Stack &obj) {
-				if (this == &obj) {
-					throw self_assignment_;
-				} else {
-					delete[] data_;
-					size_ = obj.size_;
-					data_ = new T[CAPACITY];
-					for (int i = 0; i < size; i++) {
-						data_[i] = obj.data_[i];
-					}
-				}
-				return *this;
-			}
+	    // Assignment operator
+	    Stack& operator = (const Stack &obj) {
+	        if (this == &obj) {
+		    throw self_assignment_;
+		} else {
+		    delete[] data_;
+		    size_ = obj.size_;
+		    data_ = new T[CAPACITY];
+		    for (int i = 0; i < size; i++) {
+			data_[i] = obj.data_[i];
+		    }
+		}
+		return *this;
+	    }
 
             // Destructor
             ~Stack() {
@@ -65,7 +65,7 @@ namespace data_struct {
             // Add element at the top of stack
             void Push(const T& item) {
                 if (size_ >= CAPACITY) {
-					throw full_stack_;
+		    throw full_stack_;
                 } else {
                     data_[size_] = item;
                     size_++;
@@ -75,7 +75,7 @@ namespace data_struct {
             // Delete element from top
             void Pop() {
                 if (size_ == 0) {
-					throw empty_stack_;
+		    throw empty_stack_;
                 } else {
                     size_--;
                 }
@@ -84,10 +84,10 @@ namespace data_struct {
             // Return element from top of stack
             const T& Top() {
                 if (size_ == 0) {
-					throw empty_stack_;
+		    throw empty_stack_;
                 } else {
                     int top = size_;
-		            return data_[--top];
+		    return data_[--top];
                 }
             }
                 
@@ -101,26 +101,26 @@ namespace data_struct {
             // Array that holds items
             T *data_;
 
-			// Empty stack exception
-			struct EmptyStackException : std::exception {
-				const char* what() const throw() {
-					return "Stack is empty.";
-				}
-			} empty_stack_;
+	    // Empty stack exception
+	    struct EmptyStackException : std::exception {
+	        const char* what() const throw() {
+		    return "Stack is empty.";
+	        }
+	    } empty_stack_;
 
-			// Index out of bounds exception
-			struct FullStackException : std::exception {
-				const char* what() const throw() {
-					return "Stack is full.";
-				}
-			} full_stack_;
+	    // Index out of bounds exception
+            struct FullStackException : std::exception {
+		const char* what() const throw() {
+		    return "Stack is full.";
+		}
+	    } full_stack_;
 
             // Self assignment exception
-			struct SelfAssignmentStackException : std::exception {
-				const char* what() const throw() {
-					return "Self assignment.";
-				}
-			} self_assignment_;
+	    struct SelfAssignmentStackException : std::exception {
+		const char* what() const throw() {
+		    return "Self assignment.";
+		}
+	    } self_assignment_;
         };
 }
 #endif
