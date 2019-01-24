@@ -13,3 +13,6 @@ Before that, its implementation is being tested, but bugs may occur and its styl
 ### Searching algorithms
 * [Linear search (using array)](https://github.com/BogdanPal1/training-projects/blob/master/searching_algorithms/LinearSearch.h)
 * [Binary search (iterative and using array)](https://github.com/BogdanPal1/training-projects/blob/master/searching_algorithms/BinarySearch(iterative).h)
+
+### Data structures
+* [Stack](https://github.com/BogdanPal1/training-projects/blob/master/data_structures/Stack/Stack.h)
