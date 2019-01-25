@@ -12,18 +12,16 @@
 
 namespace alg_sort {
     template<typename T>
-    void SelectionSort(T* arr, int size) {
-        int temp = 0;
-        // min is the index of a smallest element
-        int min = 0;  
+    void SelectionSort(T* arr, int size) {  
         for (int i = 0; i < size; i++) {
-            min = i;
+            // Min is index of the smallest element
+            int min = i;
             for (int j = i + 1; j < size; j++) {
                 if (arr[j] < arr[min]) {
                     min = j;
                 }
             }   
-        temp = arr[i];
+        int temp = arr[i];
         arr[i] = arr[min];
         arr[min] = temp;
         }
