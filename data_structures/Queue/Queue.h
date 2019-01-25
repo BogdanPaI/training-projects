@@ -128,13 +128,11 @@ namespace data_struct {
             } empty_queue_;
 
             // Self assignment exception
-			struct SelfAssignmentQueueException : std::exception {
-				const char* what() const throw() {
-					return "Self assignment.";
-				}
-			} self_assignment_;
-
-
+	    struct SelfAssignmentQueueException : std::exception {
+		const char* what() const throw() {
+		    return "Self assignment.";
+	        }
+	    } self_assignment_;
         };
 }
 
