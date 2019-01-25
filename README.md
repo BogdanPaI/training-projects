@@ -16,3 +16,4 @@ Before that, its implementation is being tested, but bugs may occur and its styl
 
 ### Data structures
 * [Stack](https://github.com/BogdanPal1/training-projects/blob/master/data_structures/Stack/Stack.h)
+* [Queue](https://github.com/BogdanPal1/training-projects/blob/master/data_structures/Queue/Queue.h)
