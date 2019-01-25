@@ -101,8 +101,8 @@ namespace data_struct {
             // Queue capacity
             static const int CAPACITY = 10;
 
-			// Array that imitates queue
-			T *data_;
+	    // Array that imitates queue
+	    T *data_;
 
             // Current size of queue
             int size_;
@@ -116,14 +116,14 @@ namespace data_struct {
             // Full queue exception
             struct FullQueueException : std::exception {
                 const char* what() const throw() {
-					return "Queue is full.";
+		    return "Queue is full.";
                 }
             } full_queue_;
 
             // Empty queue exception
             struct EmptyQueueException : std::exception {
                 const char* what() const throw() {
-					return "Queue is empty.";
+		    return "Queue is empty.";
                 }
             } empty_queue_;
 
