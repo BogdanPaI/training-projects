@@ -54,16 +54,24 @@ namespace data_struct{
             
             // Return front element and delete node
             const T& PopFront() {
-                ListNode<T> *cur_node = head_;
-                T item = cur_node->GetItem();
-                head_ = cur_node->GetNext();
-                delete cur_node;
-                return item;
+                if (size_ == 0) {
+                    throw empty_list_;
+                } else {
+                    ListNode<T> *cur_node = head_;
+                    T item = cur_node->GetItem();
+                    head_ = cur_node->GetNext();
+                    delete cur_node;
+                    return item;
+                }
             }
             
             // Return value of the front node
             const T& GetFront() const {
-                return head_->GetItem();
+                if (size_ == 0) {
+                    throw empty_list_;
+                } else {
+                    return head_->GetItem();
+                }
             }
             
             // Return value from the node at given index
