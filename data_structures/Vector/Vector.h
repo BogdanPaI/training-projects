@@ -1,10 +1,11 @@
 /***********************************************************
  *                         VECTOR                          *
  *                                                         *
- * A simple implementation of linked list. Its time        *
- * complexity for insertion and deletion at the end(top)   *
- * is O(1) if we have head and tail pointers, but for      *
- * access by index and search its time complexity is O(n). *
+ * A simple implementation of dynamic array. Its time      *
+ * complexity for insertion(deletion) at the top and       *
+ * access by index is O(1), but for insertion or           *
+ * deletion in random cell and search its time complexity  *
+ * is O(n).                                                *
  *                                                         *
  * For more info check:                                    *
  *        https://en.wikipedia.org/wiki/Dynamic_array      *
