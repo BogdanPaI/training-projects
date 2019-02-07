@@ -19,3 +19,4 @@ Before that, its implementation is being tested, but bugs may occur and its styl
 * [Stack](https://github.com/BogdanPal1/training-projects/blob/master/data_structures/Stack/Stack.h)
 * [Queue](https://github.com/BogdanPal1/training-projects/blob/master/data_structures/Queue/Queue.h)
 * [Singly linked list](https://github.com/BogdanPal1/training-projects/tree/master/data_structures/LinkedList)
+* [Vector(resizable array)](https://github.com/BogdanPal1/training-projects/blob/master/data_structures/Vector/Vector.h)
