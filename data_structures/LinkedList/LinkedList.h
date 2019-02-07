@@ -78,7 +78,7 @@ namespace data_struct{
             const T& ValueAt(int index) const {
                 int i = 0;
                 ListNode<T> *cur_node = head_;
-                while (i != index && cur_node != nullptr) {
+                while (i < index && cur_node != nullptr) {
                     cur_node = cur_node->GetNext();
                     ++i;
                 }
@@ -87,10 +87,14 @@ namespace data_struct{
             
             // Delete front node
             void RemoveFront() {
-                ListNode<T> *old_node = head_;
-                head_ = old_node->GetNext();
-                delete old_node;
-                --size_;
+                if (size_ == 0) {
+                    throw empty_list_;
+                } else {
+                    ListNode<T> *old_node = head_;
+                    head_ = old_node->GetNext();
+                    delete old_node;
+                    --size_;
+                }
             }
             
         private:
