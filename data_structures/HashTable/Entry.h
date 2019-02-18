@@ -13,8 +13,8 @@ namespace data_struct {
     template<typename T>
         class Entry {
         public:
-			Entry() {};
-			~Entry() {};
+	    Entry() {};
+	    ~Entry() {};
             void SetKey(const std::string& key) { key_ = key; };
             void SetValue(const T& value) { value_ = value; };
             const std::string& GetKey() { return key_; };
