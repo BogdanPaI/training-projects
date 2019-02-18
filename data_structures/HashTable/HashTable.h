@@ -18,80 +18,79 @@ namespace data_struct {
         public:
             HashTable(int capacity) {
                 capacity_ = capacity;
-				data_ = new Entry<T>[capacity_];
+		data_ = new Entry<T>[capacity_];
 
-				for (int i = 0; i < capacity_; ++i) {
-					data_[i].SetKey("");
-				}
+		for (int i = 0; i < capacity_; ++i) {
+		    data_[i].SetKey("");
+		}
             }
 			
-			~HashTable() {
-				delete[] data_;
-			}
+	    ~HashTable() {
+	        delete[] data_;
+	    }
             
             void Add(Entry<T>& element) {
-				int current_index = 0;
-				int index = Hash(element.GetKey());
+		int current_index = 0;
+		int index = Hash(element.GetKey());
 				
-				for (current_index = index; data_[current_index].GetKey() != ""; 
-					 current_index = (current_index + 1) % capacity_) {
-					if (data_[current_index].GetKey() == element.GetKey()) {
-						break;
-					}
-				}
-				
-				data_[current_index].SetKey(element.GetKey());
-				data_[current_index].SetValue(element.GetValue());
+		for (current_index = index; data_[current_index].GetKey() != ""; 
+		     current_index = (current_index + 1) % capacity_) {
+		    if (data_[current_index].GetKey() == element.GetKey()) {
+		    break;
+		    }
+		}		
+		data_[current_index].SetKey(element.GetKey());
+		data_[current_index].SetValue(element.GetValue());
             }
 
-			void Remove(const std::string key) {
-				int current_index = 0;
-				int index = Hash(key);
+	    void Remove(const std::string key) {
+		int current_index = 0;
+		int index = Hash(key);
 
-				for (current_index = index; data_[current_index].GetKey() != "";
-					current_index = (current_index + 1) % capacity_) {
-					if (data_[current_index].GetKey() == key) {
-						data_[current_index].SetKey("");
-						data_[current_index].SetValue(NULL);
-						break;
-					}
-				}
-			}
+		for (current_index = index; data_[current_index].GetKey() != "";
+		     current_index = (current_index + 1) % capacity_) {
+		    if (data_[current_index].GetKey() == key) {
+		        data_[current_index].SetKey("");
+			data_[current_index].SetValue(NULL);
+			break;
+		    }
+		}
+	    }
 
-			const T& Get(const std::string key) {
-				int current_index = 0;
-				int index = Hash(key);
+	    const T& Get(const std::string key) {
+		int current_index = 0;
+		int index = Hash(key);
 
-				for (current_index = index; data_[current_index].GetKey() != "";
-					current_index = (current_index + 1) % capacity_) {
-					if (data_[current_index].GetKey() == key) {
-						return data_[current_index].GetValue();
-					}
-				}
-				return NULL;
-			}
+		for (current_index = index; data_[current_index].GetKey() != "";
+		     current_index = (current_index + 1) % capacity_) {
+		    if (data_[current_index].GetKey() == key) {
+			return data_[current_index].GetValue();
+		    }
+		}
+		return NULL;
+	    }
 
-			bool Exists(const std::string key) {
-				int current_index = 0;
-				int index = Hash(key);
+	    bool Exists(const std::string key) {
+		int current_index = 0;
+		int index = Hash(key);
 
-				for (current_index = index; data_[current_index].GetKey() != "";
-					current_index = (current_index + 1) % capacity_) {
-					if (data_[current_index].GetKey() == key) {
-						return true;
-					}
-				}
-				return false;
-			}
+		for (current_index = index; data_[current_index].GetKey() != "";
+		     current_index = (current_index + 1) % capacity_) {
+		    if (data_[current_index].GetKey() == key) {
+			return true;
+		    }
+		}
+		return false;
+	    }
 
         private:
-            unsigned int Hash(const std::string key) {
-                unsigned int h = 0;
+           int Hash(const std::string key) {
+                int h = 0;
                 for (int i = 0; i < key.length(); ++i) {
                     h = (h << 5) | (h >> 27);
-                    h += (unsigned int) key[i];
+                    h += (int) key[i];
                 }
-				return h % capacity_;
+		return h % capacity_;
             }
         private:
             int capacity_;
