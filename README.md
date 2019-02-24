@@ -21,3 +21,4 @@ Before that, its implementation is being tested, but bugs may occur and its styl
 * [Singly linked list](https://github.com/BogdanPal1/training-projects/tree/master/data_structures/LinkedList)
 * [Vector (resizable array)](https://github.com/BogdanPal1/training-projects/blob/master/data_structures/Vector/Vector.h)
 * [Hash Table (with linear probing)](https://github.com/BogdanPal1/training-projects/tree/master/data_structures/HashTable)
+* [Binary Search Tree](https://github.com/BogdanPal1/training-projects/tree/master/data_structures/BinarySearchTree)
