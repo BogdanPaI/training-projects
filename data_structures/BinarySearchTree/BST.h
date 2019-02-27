@@ -37,7 +37,7 @@ namespace data_struct {
             }
             
             // Searching node in the tree
-            bool Search(const K& key) {
+            bool Search(const K& key) const {
                 BSTNode<K, T> *temp = root_;
                 while (temp != nullptr) {
                     if (key < temp-> GetKey()) {
@@ -79,6 +79,33 @@ namespace data_struct {
 					previous->SetRight(new_node);
 				}
             }
+
+			// Return node with minimal key 
+			BSTNode<K, T>* GetMin() const {
+				BSTNode<K, T> *current = root_;
+				BSTNode<K, T> *previous = root_;
+
+				while (current != nullptr) {
+					previous = current;
+					current = current->GetLeft();
+				}
+
+				return previous;
+			}
+
+			// Return node with maximum key
+			BSTNode<K, T>* GetMax() const {
+				BSTNode<K, T> *current = root_;
+				BSTNode<K, T> *previous = root_;
+
+				while (current != nullptr) {
+					previous = current;
+					current = current->GetRight();
+				}
+
+				return previous;
+			}
+                      
 
         private:
             BSTNode<K, T> *root_;
