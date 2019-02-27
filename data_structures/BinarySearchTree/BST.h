@@ -53,10 +53,10 @@ namespace data_struct {
             
             // Inserting new node in the tree
             void Insert(const K& key, const T& value) {
-				if (root_ == nullptr) {
-					root_ = GetNewNode(root_, key, value);
-					return;
-				}
+		if (root_ == nullptr) {
+		    root_ = GetNewNode(root_, key, value);
+		    return;
+		}
 
                 BSTNode<K, T> *current = root_;
                 BSTNode<K, T> *previous = root_;
@@ -71,13 +71,13 @@ namespace data_struct {
                     }
                 }
 
-				if (key < previous->GetKey()) {
-					BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
-					previous->SetLeft(new_node);
-				} else if (key > previous->GetKey()) {
-					BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
-					previous->SetRight(new_node);
-				}
+		if (key < previous->GetKey()) {
+		    BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
+		    previous->SetLeft(new_node);
+		} else if (key > previous->GetKey()) {
+		    BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
+		    previous->SetRight(new_node);
+		}
             }
 
 			// Return node with minimal key 
