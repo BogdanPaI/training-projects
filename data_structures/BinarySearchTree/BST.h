@@ -19,6 +19,7 @@ namespace data_struct {
             // Default constructor
             BST() {
                 height_ = 0;
+				amount_of_nodes_ = 0;
                 root_ = nullptr;
             }
             
@@ -53,10 +54,11 @@ namespace data_struct {
             
             // Inserting new node in the tree
             void Insert(const K& key, const T& value) {
-		if (root_ == nullptr) {
-		    root_ = GetNewNode(root_, key, value);
-		    return;
-		}
+		        if (root_ == nullptr) {
+		        root_ = GetNewNode(root_, key, value);
+				++amount_of_nodes_;
+		        return;
+		        }
 
                 BSTNode<K, T> *current = root_;
                 BSTNode<K, T> *previous = root_;
@@ -71,13 +73,15 @@ namespace data_struct {
                     }
                 }
 
-		if (key < previous->GetKey()) {
-		    BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
-		    previous->SetLeft(new_node);
-		} else if (key > previous->GetKey()) {
-		    BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
-		    previous->SetRight(new_node);
-		}
+		        if (key < previous->GetKey()) {
+		            BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
+		            previous->SetLeft(new_node);
+					++amount_of_nodes_;
+		        } else if (key > previous->GetKey()) {
+		            BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
+		            previous->SetRight(new_node);
+					++amount_of_nodes_;
+		        }
             }
 
 			// Return node with minimal key 
@@ -105,10 +109,16 @@ namespace data_struct {
 
 				return previous;
 			}
+
+			// Return amount of nodes in the tree
+			unsigned int GetNodesAmount() const {
+				return amount_of_nodes_;
+			}
                       
 
         private:
             BSTNode<K, T> *root_;
+			unsigned int amount_of_nodes_;
             unsigned int height_;
         };
 }
