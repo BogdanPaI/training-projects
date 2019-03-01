@@ -21,7 +21,7 @@ namespace data_struct {
             // Default constructor
             BST() {
                 height_ = 0;
-		amount_of_nodes_ = 0;
+                amount_of_nodes_ = 0;
                 root_ = nullptr;
             }
             
@@ -56,11 +56,11 @@ namespace data_struct {
             
             // Inserting new node in the tree
             void Insert(const K& key, const T& value) {
-		if (root_ == nullptr) {
-		    root_ = GetNewNode(root_, key, value);
-		    ++amount_of_nodes_;
-		    return;
-		}
+                if (root_ == nullptr) {
+                    root_ = GetNewNode(root_, key, value);
+                    ++amount_of_nodes_;
+                    return;
+                }
 
                 BSTNode<K, T> *current = root_;
                 BSTNode<K, T> *previous = root_;
@@ -74,48 +74,48 @@ namespace data_struct {
                         current = current->GetRight();
                     }
                 }
-
-		if (key < previous->GetKey()) {
-		    BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
-		    previous->SetLeft(new_node);
-		    ++amount_of_nodes_;
-		} else if (key > previous->GetKey()) {
-		    BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
-		    previous->SetRight(new_node);
-		    ++amount_of_nodes_;
-		}
+                
+                if (key < previous->GetKey()) {
+                    BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
+                    previous->SetLeft(new_node);
+                    ++amount_of_nodes_;
+                } else if (key > previous->GetKey()) {
+                    BSTNode<K, T> *new_node = GetNewNode(previous, key, value);
+                    previous->SetRight(new_node);
+                    ++amount_of_nodes_;
+                }
             }
-
-	    // Return node with minimal key 
-	    BSTNode<K, T>* GetMin() const {
-		BSTNode<K, T> *current = root_;
-		BSTNode<K, T> *previous = root_;
-
-		while (current != nullptr) {
-		    previous = current;
-		    current = current->GetLeft();
-		}
-
-		return previous;
-	    }
-
-	    // Return node with maximum key
-	    BSTNode<K, T>* GetMax() const {
-	        BSTNode<K, T> *current = root_;
-		BSTNode<K, T> *previous = root_;
-
-		while (current != nullptr) {
-		    previous = current;
-		    current = current->GetRight();
-		}
-
-		return previous;
-	    }
-
-	    // Return amount of nodes in the tree
-	    unsigned int GetNodesAmount() const {
-	        return amount_of_nodes_;
-	    }
+            
+            // Return node with minimal key 
+            BSTNode<K, T>* GetMin() const {
+                BSTNode<K, T> *current = root_;
+                BSTNode<K, T> *previous = root_;
+                
+                while (current != nullptr) {
+                    previous = current;
+                    current = current->GetLeft();
+                }
+                
+                return previous;
+            }
+            
+            // Return node with maximum key
+            BSTNode<K, T>* GetMax() const {
+                BSTNode<K, T> *current = root_;
+                BSTNode<K, T> *previous = root_;
+                
+                while (current != nullptr) {
+                    previous = current;
+                    current = current->GetRight();
+                }
+                
+                return previous;
+            }
+            
+            // Return amount of nodes in the tree
+            unsigned int GetNodesAmount() const {
+                return amount_of_nodes_;
+            }
 
             // Level-order traversal in BST(Breadth first search)
             void LevelOrder() {
@@ -126,13 +126,13 @@ namespace data_struct {
                     order.push(root_);
 
                     while (!order.empty()) {
-		        BSTNode<K, T>* current = order.front();
+                        BSTNode<K, T>* current = order.front();
                         order.pop();
                         std::cout << current->GetKey() << " ";
-
-			if (current->GetLeft() != nullptr) {
-			    order.push(current->GetLeft());
-			}
+                        
+                        if (current->GetLeft() != nullptr) {
+                            order.push(current->GetLeft());
+                        }
 
                         if (current->GetRight() != nullptr) {
                             order.push(current->GetRight());
