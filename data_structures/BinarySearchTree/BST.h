@@ -10,6 +10,8 @@
 #ifndef DATA_STRUCT_BST_H
 #define DATA_STRUCT_BST_H
 
+#include <queue>
+#include <iostream>
 #include "BSTNode.h"
 
 namespace data_struct {
@@ -114,11 +116,35 @@ namespace data_struct {
 	    unsigned int GetNodesAmount() const {
 	        return amount_of_nodes_;
 	    }
+
+        // Level-order traversal in BST(Breadth first search)
+        void LevelOrder() {
+            if (root_ == nullptr) {
+                return;
+            } else {
+                std::queue<BSTNode<K, T>*> order;
+                order.push(root_);
+
+                while (!order.empty()) {
+					BSTNode<K, T>* current = order.front();
+                    order.pop();
+                    std::cout << current->GetKey() << " ";
+
+					if (current->GetLeft() != nullptr) {
+						order.push(current->GetLeft());
+					}
+
+                    if (current->GetRight() != nullptr) {
+                        order.push(current->GetRight());
+                    }
+                }
+            }
+        }
                       
 
         private:
             BSTNode<K, T> *root_;
-	    unsigned int amount_of_nodes_;
+            unsigned int amount_of_nodes_;
             unsigned int height_;
         };
 }
