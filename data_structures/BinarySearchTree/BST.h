@@ -117,29 +117,29 @@ namespace data_struct {
 	        return amount_of_nodes_;
 	    }
 
-        // Level-order traversal in BST(Breadth first search)
-        void LevelOrder() {
-            if (root_ == nullptr) {
-                return;
-            } else {
-                std::queue<BSTNode<K, T>*> order;
-                order.push(root_);
+            // Level-order traversal in BST(Breadth first search)
+            void LevelOrder() {
+                if (root_ == nullptr) {
+                    return;
+                } else {
+                    std::queue<BSTNode<K, T>*> order;
+                    order.push(root_);
 
-                while (!order.empty()) {
-					BSTNode<K, T>* current = order.front();
-                    order.pop();
-                    std::cout << current->GetKey() << " ";
+                    while (!order.empty()) {
+		        BSTNode<K, T>* current = order.front();
+                        order.pop();
+                        std::cout << current->GetKey() << " ";
 
-					if (current->GetLeft() != nullptr) {
-						order.push(current->GetLeft());
-					}
+			if (current->GetLeft() != nullptr) {
+			    order.push(current->GetLeft());
+			}
 
-                    if (current->GetRight() != nullptr) {
-                        order.push(current->GetRight());
+                        if (current->GetRight() != nullptr) {
+                            order.push(current->GetRight());
+                        }
                     }
                 }
             }
-        }
                       
 
         private:
