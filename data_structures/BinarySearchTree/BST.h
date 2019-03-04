@@ -12,6 +12,7 @@
 
 #include <queue>
 #include <iostream>
+#include <algorithm>
 #include "BSTNode.h"
 
 namespace data_struct {
@@ -117,6 +118,10 @@ namespace data_struct {
                 return amount_of_nodes_;
             }
 
+            unsigned int GetHeight() {
+                return HeightInternal(root_);
+            }
+
             // Level-order traversal in BST(Breadth first search)
             void LevelOrder() {
                 if (root_ == nullptr) {
@@ -140,8 +145,17 @@ namespace data_struct {
                     }
                 }
             }
-                      
 
+        private:
+            // Internal function that recursively finds height of the tree
+            unsigned int HeightInternal(BSTNode<K, T>* node) {
+                if (node == nullptr) {
+                    return 0;
+                } else {
+					return std::max(HeightInternal(node->GetLeft()), HeightInternal(node->GetRight())) + 1;
+				}
+            }
+            
         private:
             BSTNode<K, T> *root_;
             unsigned int amount_of_nodes_;
