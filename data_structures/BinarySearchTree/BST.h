@@ -117,7 +117,8 @@ namespace data_struct {
             unsigned int GetNodesAmount() const {
                 return amount_of_nodes_;
             }
-
+            
+            // Return height of the tree
             unsigned int GetHeight() {
                 return HeightInternal(root_);
             }
@@ -152,8 +153,8 @@ namespace data_struct {
                 if (node == nullptr) {
                     return 0;
                 } else {
-					return std::max(HeightInternal(node->GetLeft()), HeightInternal(node->GetRight())) + 1;
-				}
+                    return std::max(HeightInternal(node->GetLeft()), HeightInternal(node->GetRight())) + 1;
+                }
             }
             
         private:
