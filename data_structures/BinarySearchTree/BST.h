@@ -21,7 +21,6 @@ namespace data_struct {
         public:
             // Default constructor
             BST() {
-                height_ = 0;
                 amount_of_nodes_ = 0;
                 root_ = nullptr;
             }
@@ -160,7 +159,6 @@ namespace data_struct {
         private:
             BSTNode<K, T> *root_;
             unsigned int amount_of_nodes_;
-            unsigned int height_;
         };
 }
 
