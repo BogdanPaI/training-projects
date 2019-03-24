@@ -7,6 +7,7 @@ Before that, its implementation is being tested, but bugs may occur and its styl
 ### Sorting algorithms
 * [Selection sort (using array)](https://github.com/BogdanPal1/training-projects/blob/master/sorting_algorithms/SelectionSort.h)
 * [Insertion sort (using array)](https://github.com/BogdanPal1/training-projects/blob/master/sorting_algorithms/InsertionSort.h)
+* [Shell sort (using array)](https://github.com/BogdanPal1/training-projects/blob/master/sorting_algorithms/ShellSort.h)
 * [Merge sort (using array)](https://github.com/BogdanPal1/training-projects/blob/master/sorting_algorithms/MergeSort.h)
 * [Quicksort (using array)](https://github.com/BogdanPal1/training-projects/blob/master/sorting_algorithms/QuickSort.h)
 
