@@ -29,7 +29,7 @@ namespace data_struct {
                     data_[++size_] = item;
                     Up(size_);
                 } else {
-                    throw std::overflow_error("Heap is full.")                
+                    throw std::overflow_error("Heap is full.");                
                 }
             }
 
